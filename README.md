@@ -1,1 +1,1 @@
-# daniela-store-admin
+# daniela_store_web
