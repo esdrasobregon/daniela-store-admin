@@ -30,7 +30,7 @@ class Product {
           activ: pProduct.activ,
           description: pProduct.description
       }).then(function(docRef) {
-           window.location.href = '../../shared/uploadImages.html?id='+docRef.id+'?productName='+pProduct.name;
+           window.location.href = window.rootFile+'shared/uploadImages.html?id='+docRef.id+'?productName='+pProduct.name;
       }).catch(function(error) {
           console.error("Error adding document: ", error);
           return null;

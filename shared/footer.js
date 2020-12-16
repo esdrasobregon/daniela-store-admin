@@ -15,7 +15,7 @@ $(document).ready(function(){
     //facebook item 
     var facebook = document.createElement('li');
     facebook.setAttribute('class', 'list-inline-item');
-    var aFacebook = createCustomAnchor('Facebook', 'http://wwww.facebook.com', 'nav-item');
+    var aFacebook = createCustomNewTabAnchor('Facebook', 'http://wwww.facebook.com', 'nav-item');
     facebook.appendChild(aFacebook);
 
     var home = createCustomVarItem('list-inline-item');
@@ -23,10 +23,10 @@ $(document).ready(function(){
     var contact = createCustomVarItem('list-inline-item');
     var store = createCustomVarItem('list-inline-item');
         //anchors
-    var aHome = createCustomAnchor('Home', window.rootFile+'pages/home.html', 'nav-link');
-    var aAbout = createCustomAnchor('about', window.rootFile+ 'pages/about.html', 'nav-link');
-    var aContact = createCustomAnchor('Contact', window.rootFile+'pages/contact.html', 'btn-floating btn-fb mx-1');
-    var aStore = createCustomAnchor('Store', window.rootFile+'pages/store.html', 'btn-floating btn-fb mx-1');
+    var aHome = createCustomNewTabAnchor('Home', 'https://daniela-store.web.app/pages/home.html', 'nav-link');
+    var aAbout = createCustomNewTabAnchor('about', 'https://daniela-store.web.app/pages/about.html', 'nav-link');
+    var aContact = createCustomNewTabAnchor('Contact', 'https://daniela-store.web.app/pages/contact.html', 'btn-floating btn-fb mx-1');
+    var aStore = createCustomNewTabAnchor('Store', 'https://daniela-store.web.app/pages/store.html', 'btn-floating btn-fb mx-1');
         //append the anchors to the list
     home.appendChild(aHome);
     about.appendChild(aAbout);

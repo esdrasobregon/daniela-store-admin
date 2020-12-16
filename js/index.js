@@ -117,6 +117,6 @@ function renderProduct(doc){
     });
     // updating data
     btnUpdate.addEventListener('click', (e) => {
-        window.location.href = '../../pages/products/update.html?id='+doc.idProduct+'?imageUrl='+'https://firebasestorage.googleapis.com/v0/b/daniela-store.appspot.com/o/'+doc.idProduct;
+        window.location.href = window.rootFile+'pages/products/update.html?id='+doc.idProduct+'?imageUrl='+'https://firebasestorage.googleapis.com/v0/b/daniela-store.appspot.com/o/'+doc.idProduct;
     });
 }

@@ -62,7 +62,7 @@
     //facebook item 
     var facebook = document.createElement('li');
     facebook.setAttribute('class','nav-item active');
-    var aFacebook = createCustomAnchor('Facebook', 'http://wwww.facebook.com', 'nav-link');
+    var aFacebook = createCustomNewTabAnchor('Facebook', 'http://wwww.facebook.com', 'nav-link');
     facebook.appendChild(aFacebook);
 
     var home = createCustomVarItem('nav-item');
@@ -70,10 +70,10 @@
     var contact = createCustomVarItem('nav-item');
     var store = createCustomVarItem('nav-item');
         //anchors
-    var aHome = createCustomAnchor('Home', window.rootFile+'pages/home.html', 'nav-link');
-    var aAbout = createCustomAnchor('about', window.rootFile+ 'pages/about.html', 'nav-link');
-    var aContact = createCustomAnchor('Contact', window.rootFile+'pages/contact.html', 'nav-link');
-    var aStore = createCustomAnchor('Store', window.rootFile+'pages/store.html', 'nav-link');
+    var aHome = createCustomNewTabAnchor('Home', 'https://daniela-store.web.app/pages/home.html', 'nav-link');
+    var aAbout = createCustomNewTabAnchor('about', 'https://daniela-store.web.app/pages/about.html', 'nav-link');
+    var aContact = createCustomNewTabAnchor('Contact', 'https://daniela-store.web.app/pages/contact.html', 'nav-link');
+    var aStore = createCustomNewTabAnchor('Store', 'https://daniela-store.web.app/pages/store.html', 'nav-link');
         //append the anchors to the list
     home.appendChild(aHome);
     about.appendChild(aAbout);

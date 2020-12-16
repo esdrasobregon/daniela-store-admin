@@ -6,6 +6,15 @@
     aTag.setAttribute('class', anchorClass);
     return aTag ;
 }
+ //customize nav var anchor 
+ function createCustomNewTabAnchor(anchorText, anchorLink, anchorClass){
+    var aTag = document.createElement("a");
+    aTag.href = anchorLink;
+    aTag.innerHTML = anchorText;
+    aTag.setAttribute('class', anchorClass);
+    aTag.setAttribute('target', '_blank');
+    return aTag ;
+}
 //customize nav bar items
 function createCustomVarItem(pClass){
     var item = document.createElement('li');
@@ -81,3 +90,7 @@ function strReplace(pText, pcharsToChage){
     var newStr = pText.replace(pcharsToChage, ' ');
     return newStr;
 }
+
+function NewTab(url) { 
+    window.open(url, "_blank");
+} 
