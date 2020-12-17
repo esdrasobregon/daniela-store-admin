@@ -18,7 +18,7 @@ window.onload = async function(){
     categories = await getAllCategories();
     
     categories.forEach(item =>{
-        var li = createCustomTextTag('option', 'divider', item.description);
+        var li = createCustomTextTag('option', 'divider', item.name);
         li.setAttribute('role', 'presentation');
                     
         stateSelect.appendChild(li);
