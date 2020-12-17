@@ -13,7 +13,7 @@ window.onload = async function(){
         .attr('src', targerFile);
     
     categories.forEach(item =>{
-        var li = createCustomTextTag('option', 'divider', item.description);
+        var li = createCustomTextTag('option', 'divider', item.name);
         li.setAttribute('value', item.idCategory);
         li.setAttribute('role', 'presentation');                    
         stateSelect.appendChild(li);
