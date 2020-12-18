@@ -10,7 +10,9 @@ $(document).ready(function(){
     footerContainer.setAttribute('class', 'page-footer font-small mdb-color darken-3 pt-4');
     darkDiv.appendChild(footerContainer);
     var centralDiv = document.createElement('div');
-    centralDiv.setAttribute('class', 'navbar navbar-expand-lg navbar-light bg-light');
+
+    centralDiv.setAttribute('class', 'overflow-auto bg-light');
+    centralDiv.setAttribute('style', 'max-height: 75px;');
     //list
     //facebook item 
     var facebook = document.createElement('li');
@@ -36,8 +38,7 @@ $(document).ready(function(){
     contact.appendChild(aContact);
     store.appendChild(aStore);
         //append the nav bar list items 
-    appendChildListTag([home, categories, about, contact, facebook, aStore], liststart);
-    
+    appendChildListTag([home, categories, about, contact, facebook, aStore], liststart);    
     centralDiv.appendChild(liststart);
     darkDiv.appendChild(centralDiv);
 
