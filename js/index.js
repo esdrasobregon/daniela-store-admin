@@ -1,4 +1,4 @@
-const productTableList = document.querySelector('#product-table-list');
+const productcategoryList = document.querySelector('#category-product-list');
 const form = document.querySelector('#add-product-form');
 var categories;
 var productList;
@@ -22,13 +22,14 @@ window.onload = async function(){
         li.setAttribute('role', 'presentation');
                     
         stateSelect.appendChild(li);
+        renderCategoryList(item);
     });
     if(categories != null){
         indexCategorySelected = categories[0].idCategory;
     }
     productList = await getAllProducts();
     productList.forEach(item =>{
-        renderProduct(item);
+        renderProductList(item);
     });
 }
 function chageIndexSelected(sel) {
@@ -73,36 +74,49 @@ db.collection('product').orderBy('category').onSnapshot(snapshot => {
     });
 });
 
-// create element & render cafe
-function renderProduct(doc){
-    let tr = document.createElement('tr');
-    tr.setAttribute('id', doc.idProduct);
-    tr.setAttribute('class', 'table-success');
-    let blank = document.createElement('td');
-    blank.setAttribute('class', 'table-success');
-    let idProduct = createCustomTextTag('td', 'table-success', doc.idProduct);
-    let name = createCustomTextTag('td', 'table-success', doc.name);
-    let price = createCustomTextTag('td', 'table-success', doc.price);
-    let inventory = createCustomTextTag('td', 'table-success', doc.inventory);
-    let state = createCustomTextTag('td', 'table-success', doc.activ);
-    let createD = createCustomTextTag('td', 'table-success', doc.creationDate);
-    let modificationD = createCustomTextTag('td', 'table-success', doc.modificationDate);
-    let category = createCustomTextTag('td', 'table-success', doc.category);
+//create category list
+function renderCategoryList(item){
+    var divCat = createDivTagClassStyle('row', 'margin: 10px');
+    var divHeadder = document.createElement('div');
+    var headder = document.createElement('h5');
+    var aHeader = createCustomTextTag('a', 'btn btn-primary', item.name);
+    aHeader.setAttribute('role', 'button');
+    headder.appendChild(aHeader);
+    var catList = createCustomNonTextTag('ul', 'row');
+    var divHide  = createDivTagClassStyle('container', 'display: none');
+    divHide.setAttribute('id', 'catList'+item.idCategory);
+    headder.setAttribute('onClick', 'hideAndShowDiv(catList'+item.idCategory+')');
+    catList.setAttribute('style', 'list-style: none;');
+    catList.setAttribute('id', item.idCategory);
+    divHeadder.appendChild(headder);
+    divHide.appendChild(catList);
+    appendChildListTag([divHeadder, divHide], divCat);
+    productcategoryList.appendChild(divCat);
+};
 
-    let tdActions = createCustomNonTextTag('td', 'row');
+//create a list for every category
+function renderProductList(doc){
+    
     var btnDelete = createCustomTextTag('button', 'btn btn-danger', 'X');
     btnDelete.setAttribute('style', 'margin-right:5px');
     var btnUpdate = createCustomTextTag('button', 'btn btn-warning', '!');
-    appendChildListTag([btnDelete, btnUpdate], tdActions);
-
-    tr.setAttribute('data-id', doc.idProduct);
-
-    appendChildListTag([blank, idProduct, name, price, inventory, state, createD, modificationD, category], tr);
     
-    tr.appendChild(tdActions);
+    var divProdDetails = createCustomNonTextTag('div', 'container-fluid');
+    var pName = createCustomTextTag('h5', 'h5', 'Name: '+doc.name);
+    var pidProduct = createCustomTextTag('p', 'text-info', 'Id: '+doc.idProduct);
+    var pPrice = createCustomTextTag('p', 'text-info', 'Price: '+doc.price);
+    var pInventory = createCustomTextTag('p', 'text-info', 'inventory: '+doc.inventory);
+    var pState = createCustomTextTag('p', 'text-info', 'State: '+doc.activ);
+    var pCreation = createCustomTextTag('p', 'text-info', 'Creation date: '+doc.creationDate);
+    var pModification = createCustomTextTag('p', 'text-info', 'Last modification: '+doc.modificationDate);
+    appendChildListTag([pName, pidProduct, pidProduct, pPrice, pInventory, pState, pCreation, pModification, btnDelete, btnUpdate], divProdDetails);
 
-    productTableList.appendChild(tr);
+    var prodli = document.createElement('li');
+    prodli.setAttribute('list-style-type', 'none');
+    prodli.setAttribute('id', doc.idProduct);
+    prodli.appendChild(divProdDetails);
 
+    document.getElementById(doc.category).appendChild(prodli);
     // deleting data
     btnDelete.addEventListener('click', async (e) => {
         e.stopPropagation();
@@ -110,9 +124,9 @@ function renderProduct(doc){
         showPleaseWait();
         await deleteProduct(id);
         hidePleaseWait();
-        location.reload();
-        /*let tr = productTableList.querySelector(id);
-        productTableList.removeChild(tr);*/
+        //location.reload();
+        //let tr = productTableList.querySelector(id);
+        document.getElementById(doc.category).removeChild(prodli);
 
     });
     // updating data

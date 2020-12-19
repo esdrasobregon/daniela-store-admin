@@ -65,22 +65,25 @@
     var aFacebook = createCustomNewTabAnchor('Facebook', 'http://wwww.facebook.com', 'nav-link');
     facebook.appendChild(aFacebook);
 
+    var categories = createCustomVarItem('nav-item');
     var home = createCustomVarItem('nav-item');
     var about = createCustomVarItem('nav-item');
     var contact = createCustomVarItem('nav-item');
     var store = createCustomVarItem('nav-item');
         //anchors
-    var aHome = createCustomNewTabAnchor('Home', 'https://daniela-store.web.app/pages/home.html', 'nav-link');
+    var aHome = createCustomAnchor('Home', window.rootFile+'index.html', 'nav-link');
+    var aCategory = createCustomAnchor('Categories', window.rootFile+'pages/categories/categories.html', 'nav-link');
     var aAbout = createCustomNewTabAnchor('about', 'https://daniela-store.web.app/pages/about.html', 'nav-link');
     var aContact = createCustomNewTabAnchor('Contact', 'https://daniela-store.web.app/pages/contact.html', 'nav-link');
     var aStore = createCustomNewTabAnchor('Store', 'https://daniela-store.web.app/pages/store.html', 'nav-link');
         //append the anchors to the list
+    categories.appendChild(aCategory);
     home.appendChild(aHome);
     about.appendChild(aAbout);
     contact.appendChild(aContact);
     store.appendChild(aStore);
         //append the nav bar list items 
-    appendChildListTag([innerDiv, home, about, contact, facebook, store, profile], liststart);
+    appendChildListTag([innerDiv, home, categories, about, contact, facebook, store, profile], liststart);
     content.appendChild(liststart);
     centralDiv.appendChild(content);
     

@@ -55,7 +55,7 @@ function appendChildListTag(pChildList, mainTag){
 }
 
 function hideAndShowDiv(elementId) {
-  if (elementId.style.display === "none") {
+  if (elementId.style.display == "none") {
     elementId.style.display = "block";
   } else {
     elementId.style.display = "none";
