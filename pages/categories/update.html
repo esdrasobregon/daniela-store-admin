@@ -16,60 +16,64 @@
         <div class="pos-f-t" id="header"></div>
 
         <div class="container">
-            <div class="row">
-                <div>
-                    <img src="../../shared/images/arrow-back.png" width="70" onclick="window.history.back()" style="margin: 20px">
-                </div>
-            </div>
-            <br><br></br>
-            <div class="card border-success mb-10">
-                <div id="container-add-product-form" class="container-fluid">
-                    <br>
-                    <h5 class="text-info">
-                        Add some products
-                    </h5>
-                    <div class="form-group">
-                        <form id="update-product-form" class="container">
-                        <div class="form-group">
-                            <input type="text" class="form-control", id="name" name="name" placeholder="Product name">
-                        </div>
-                        <div class="form-group" style="display: none;">
-                            <input type="text" class="form-control" name="idProduct" placeholder="Id product">
-                        </div>
-                        <div class="form-group">
-                            <label for="activ">Choose product state:</label>
-                            <select class="form-control" name="activ" id="activ">
-                                <option value="1">Activ</option>
-                                <option value="0">Inactiv</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea type="text" class="form-control", id="description" name="description" placeholder="Product description"></textarea>
+            <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-width: 100%; max-height: 450px;">
+                
+                <div class="card border-success mb-10"  style="margin: 20px">
+                    <div id="container-add-product-form" class="container-fluid">
+                        <div class="row">
+                            <div>
+                                <img src="../../shared/images/arrow-back.png" width="70" onclick="window.history.back()" style="margin: 20px">
+                                
+                            </div>
+                            <div style="margin: 40px">
+                                <h5 class="text-info">Add some products</h5>
+                            </div>
                         </div>
                         
-                                                    
-                        <div class="bg-light clearfix">
-                            <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Submit</button>
-                                    
-                            <button onclick="comeBack()" class="btn btn-warning float-right">Go back</button>
-                        </div>
+                        <div class="form-group">
+                            <form id="update-product-form" class="container">
+                            <div class="form-group">
+                                <input type="text" class="form-control", id="name" name="name" placeholder="Product name">
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <input type="text" class="form-control" name="idProduct" placeholder="Id product">
+                            </div>
+                            <div class="form-group">
+                                <label for="activ">Choose product state:</label>
+                                <select class="form-control" name="activ" id="activ">
+                                    <option value="1">Activ</option>
+                                    <option value="0">Inactiv</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea type="text" class="form-control", id="description" name="description" placeholder="Product description"></textarea>
+                            </div>
+                            
+                                                        
+                            <div class="bg-light clearfix">
+                                <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Submit</button>
+                                        
+                                <button onclick="comeBack()" class="btn btn-warning float-right">Go back</button>
+                            </div>
 
-                    </form>
-                    </div>
-                    
-                    <div class="d-md-flex">
-                        <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-width: 800px; max-height: 350px;">
-        
-                            <br>
-                            <img class="img-fluid" alt="Responsive image" id="imageFirebase" src="#"/><br>
+                        </form>
+                        </div>
+                        
+                        <div class="d-md-flex">
+                            <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-width: 800px; max-height: 350px;">
+            
+                                <br>
+                                <img class="img-fluid" alt="Responsive image" id="imageFirebase" src="#"/><br>
+                            </div>
+                        </div>
+                        <div class="alert alert-secondary self-center" style="margin-bottom: 20px">
+                            <button onclick="redirectToUploadImage()" class="btn btn-warning">Change image</button>
                         </div>
                     </div>
-                    <div class="alert alert-secondary self-center" style="margin-bottom: 20">
-                        <button onclick="redirectToUploadImage()" class="btn btn-warning">Change image</button></div>
                 </div>
             </div>
         </div>
-        <br><br><br>
+            
         <!--
             importing the commun footer
          -->

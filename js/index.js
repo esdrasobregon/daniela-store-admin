@@ -102,8 +102,7 @@ function renderProductList(doc){
     var btnUpdate = createCustomTextTag('button', 'btn btn-warning', '!');
     
     var divProdDetails = createCustomNonTextTag('div', 'container-fluid');
-    divProdDetails.setAttribute('style', 'margin: 10px');
-    var pName = createCustomTextTag('h5', 'text-info', 'Name: '+doc.name);
+    var pName = createCustomTextTag('h5', 'h5', 'Name: '+doc.name);
     var pidProduct = createCustomTextTag('p', 'text-info', 'Id: '+doc.idProduct);
     var pPrice = createCustomTextTag('p', 'text-info', 'Price: '+doc.price);
     var pInventory = createCustomTextTag('p', 'text-info', 'inventory: '+doc.inventory);
